@@ -424,4 +424,5 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |501|[Mini Twitter](http://www.lintcode.com/en/problem/mini-twitter/)| [Java](./Java/mini-twitter.cpp)| _O(klogu)_ | _O(t + f)_ | Medium | | |
 
 ===
-## Note : since the original name for not is "note.md", so i wrote a python script to rename all the notes. That's why i kept a ".py" file in this repository.
+## Note 
+Since the original name for not is "note.md", so i wrote a python script to rename all the notes. That's why i kept a ".py" file in this repository.
