@@ -1,5 +1,5 @@
 # Lintcode
-Algorithm Practice
+Record for Algorithm Practice
 
 
 ===
