@@ -25,6 +25,7 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 * [Greedy](https://github.com/KevinZhou92/LintCode#greedy)
 * [OO Design](https://github.com/KevinZhou92/LintCode#oo-design)
 * [System Design](https://github.com/KevinZhou92/LintCode#system-design)
+* [Note](https://github.com/KevinZhou92/LintCode#note)
 
 
 ## Bit Manipulation
@@ -423,4 +424,4 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |501|[Mini Twitter](http://www.lintcode.com/en/problem/mini-twitter/)| [Java](./Java/mini-twitter.cpp)| _O(klogu)_ | _O(t + f)_ | Medium | | |
 
 ===
-Note : since the original name for not is "note.md", so i wrote a python script to rename all the notes. That's why i kept a ".py" file in this repository.
+## Note : since the original name for not is "note.md", so i wrote a python script to rename all the notes. That's why i kept a ".py" file in this repository.
