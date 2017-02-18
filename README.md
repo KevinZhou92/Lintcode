@@ -93,7 +93,8 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 ## String
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|13|[strStr](http://lintcode.com/en/problem/strstr/)|[Java](./Java/strstr.cpp)| _O(n + k)_ | _O(k)_ | Easy | LeetCode | `KMP Algorithm` |
+|13|[
+](http://lintcode.com/en/problem/strstr/)|[Java](./13_strstr/strstr.java)| _O(n + k)_ | _O(k)_ | Easy | LeetCode | `KMP Algorithm` |
 |53|[Reverse Words in a String](http://lintcode.com/en/problem/reverse-words-in-a-string/)|[Java](./Java/reverse-words-in-a-string.cpp)| _O(n)_ | _O(1)_ | Easy | LeetCode, EPI | |
 |54|[String to Integer(atoi)](http://lintcode.com/en/problem/string-to-integeratoi/)|[Java](./Java/string-to-integeratoi.cpp)| _O(n)_ | _O(1)_ | Hard | LeetCode | |
 |55|[Compare Strings](http://lintcode.com/en/problem/compare-strings/)|[Java](./Java/compare-strings.cpp)| _O(n)_ | _O(c)_ | Easy | | |
