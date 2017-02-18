@@ -311,7 +311,7 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |137|[Clone Graph](http://lintcode.com/en/problem/clone-graph/)| [Java](./Java/clone-graph.cpp)| _O(\|V\|+\|E\|)_ | _O(\|V\|)_ | Medium | | BFS |
 |176|[Route Between Two Nodes in Graph](http://lintcode.com/en/problem/route-between-two-nodes-in-graph/)| [Java](./Java/route-between-two-nodes-in-graph.cpp)| _O(n)_ | _O(n)_ | Medium | | DFS, BFS |
 |178| [Graph Valid Tree](http://lintcode.com/en/problem/graph-valid-tree/)| [Java](./Java/graph-valid-tree.cpp) | _O(\|V\| + \|E\|)_          | _O(\|V\| + \|E\|)_          | Medium         | LeetCode ||
-|431|[Find the Connected Component in the Undirected Graph](http://lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)| [Java](./Java/find-the-connected-component-in-the-undirected-graph.cpp)| _O(n)_ | _O(n)_ | Medium | | BFS |
+|431|[Find the Connected Component in the Undirected Graph](http://lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)| [Java](./431_connected-component-in-undirected-graph/connected-component-in-undirected-graph.java)| _O(n)_ | _O(n)_ | Medium | | BFS, Union-Find |
 |477|[Surrounded Regions](http://lintcode.com/en/problem/surrounded-regions/)|[Java](./Java/surrounded-regions.cpp)| _O(m * n)_ | _O(m + n)_ | Medium         | LeetCode ||
 
 ## Depth-First Search
