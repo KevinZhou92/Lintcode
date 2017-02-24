@@ -18,7 +18,7 @@ class ReName():
 			for file in os.listdir(directory):
 				if file.find('note') >= 0:
 					os.rename(os.path.join(directory, file),os.path.join(directory, 'readMe.md'))
-					print(file)
+					print(os.path.join(directory, file))
 
 
 task = ReName()
