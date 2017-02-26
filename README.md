@@ -214,7 +214,8 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |114|[Unique Paths](http://lintcode.com/en/problem/unique-paths/)| [Java](./Java/unique-paths.cpp)| _O(min(m, n))_ | _O(1)_ | Easy | LeetCode, CTCI | DP, Math |
 |163|[Unique Binary Search Trees](http://lintcode.com/en/problem/unique-binary-search-trees/)| [Java](./Java/unique-binary-search-trees.cpp)| _O(n)_ | _O(1)_ | Medium | CTCI | DP, Math, `Catalan Number` |
 |180|[Binary Represention](http://lintcode.com/en/problem/delete-digits/)| [Java](./Java/binary-representation.cpp)| _O(1)_ | _O(1)_ | Hard | CTCI | |
-|197|[Permutation Index](http://lintcode.com/en/problem/permutation-index/)| [Java](./Java/permutation-index.cpp)| _O(n^2)_ | _O(1)_ | Easy | | |
+|1
+|[Permutation Index](http://lintcode.com/en/problem/permutation-index/)| [Java](./Java/permutation-index.cpp)| _O(n^2)_ | _O(1)_ | Easy | | |
 |198|[Permutation Index II](http://lintcode.com/en/problem/permutation-index-ii/)| [Java](./Java/permutation-index-ii.cpp)| _O(n^2)_ | _O(n)_ | Medium | | |
 |394|[Coins in a Line](http://lintcode.com/en/problem/coins-in-a-line/)| [Java](./Java/coins-in-a-line.cpp)| _O(1)_ | _O(1)_ | Easy | | |
 |411|[Gray Code](http://lintcode.com/en/problem/gray-code/)| [Java](./Java/gray-code.cpp)| _O(2^n)_ | _O(1)_ | Medium | LeetCode | |
@@ -255,7 +256,7 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |93|[Balanced Binary Tree](http://lintcode.com/en/problem/balanced-binary-tree/)| [Java](./Java/balanced-binary-tree.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |94|[Binary Tree Maximum Path Sum](http://lintcode.com/en/problem/binary-tree-maximum-path-sum/)| [Java](./Java/binary-tree-maximum-path-sum.cpp)| _O(n)_ | _O(h)_ | Medium | LeetCode | |
 |95|[Validate Binary Search Tree](http://lintcode.com/en/problem/validate-binary-search-tree/)| [Java](./Java/validate-binary-search-tree.cpp)| _O(n)_ | _O(h)_ | Medium | LeetCode | |
-|97|[Maximum Depth of Binary Tree](http://lintcode.com/en/problem/maximum-depth-of-binary-tree/)| [Java](./Java/maximum-depth-of-binary-tree.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
+|97|[Maximum Depth of Binary Tree](http://lintcode.com/en/problem/maximum-depth-of-binary-tree/)| [Java](./97_maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.java)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
 |131|[Building Outline](http://lintcode.com/en/problem/building-outline/)| [Java](./Java/building-outline.cpp) [Python](./Python/building-outline.py)| _O(nlogn)_ | _O(n)_ | Hard | EPI | Sort, BST |
 |140|[Fast Power](http://lintcode.com/en/problem/fast-power/)| [Java](./Java/fast-power.cpp)| _O(logn)_ | _O(1)_ | Medium | | |
 |155|[Minimum Depth of Binary Tree](http://lintcode.com/en/problem/minimum-depth-of-binary-tree/)| [Java](./Java/minimum-depth-of-binary-tree.cpp)| _O(n)_ | _O(h)_ | Easy | LeetCode | |
