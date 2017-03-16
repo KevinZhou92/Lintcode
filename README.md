@@ -335,7 +335,7 @@ Up to date (2017), there are too many problems on LintCode Online Judge. The num
 |123|[Word Search](http://lintcode.com/en/problem/word-search/)| [Java](./Java/word-search.cpp)| _O(m * n * l)_ | _O(l)_ | Medium | LeetCode | |
 |132|[Word Search II](http://lintcode.com/en/problem/word-search-ii/)| [Java](./Java/word-search-ii.cpp)| _O(m * n * l)_ | _O(l)_ | Hard | | Trie, DFS |
 |135|[Combination Sum](http://lintcode.com/en/problem/combination-sum/)| [Java](./Java/combination-sum.cpp)| _O(k * n^k)_ | _O(k)_ | Medium | LeetCode | DFS |
-|136|[Palindrome Partitioning](http://lintcode.com/en/problem/palindrome-partitioning/)| [Java](./J136_palindrome-partitioning/palindrome-partitioning.java)| _O(2^n)_ | _O(n)_ | Easy | LeetCode, EPI | |
+|136|[Palindrome Partitioning](http://lintcode.com/en/problem/palindrome-partitioning/)| [Java](./136_palindrome-partitioning/palindrome-partitioning.java)| _O(2^n)_ | _O(n)_ | Easy | LeetCode, EPI | |
 |152|[Combinations](http://lintcode.com/en/problem/combinations/)| [Java](./Java/combinations.cpp)| _O(k * n^k)_ | _O(k)_ | Medium | LeetCode, EPI | |
 |153|[Combination Sum II](http://lintcode.com/en/problem/combination-sum-ii/)| [Java](./Java/combination-sum-ii.cpp)| _O(k * C(n, k))_ | _O(k)_ | Medium | LeetCode | DFS |
 |425|[Letter Combinations of a Phone Number](http://lintcode.com/en/problem/letter-combinations-of-a-phone-number/) | [Java](./Java/letter-combinations-of-a-phone-number.cpp)| _O(n * 4^n)_ | _O(n)_ | Medium | LeetCode | |
