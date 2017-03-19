@@ -19,10 +19,10 @@ public class Solution {
      * @param nodes a array of Undirected graph node
      * @return a connected set of a Undirected graph
      */
-    // Union-Find
+     
     private class UF {
          HashMap<Integer, Integer> father = new HashMap<Integer, Integer>();
-        // construct the reflection between every node and its father
+        
         public UF(ArrayList<UndirectedGraphNode> nodes) {
             for (UndirectedGraphNode node : nodes) {
                 father.put(node.label, node.label);
@@ -39,22 +39,17 @@ public class Solution {
             }
             return fa;
         }
-        //more efficient find method
+        
         public int compress_find(int x) {
             int fa = father.get(x);
             while (fa != father.get(fa)) {
+                int temp = fa;
                 fa = father.get(fa);
-            }
-            
-            int next;
-            while(father.get(x) != x){
-                next = father.get(x)
-                father.put(x, fa);
-                x = next;
+                int next = father.get(fa);
+                father.put(temp, next);
             }
             return fa;
         }
-        
         public void union(int x, int y) {
             int xfa = find(x);
             int yfa = find(y);
@@ -63,13 +58,13 @@ public class Solution {
             }
         }
     }
-    // main solution
+    
     public List<List<Integer>> connectedSet(ArrayList<UndirectedGraphNode> nodes) {
         List<List<Integer>> results =  new ArrayList<>();
         if (nodes == null) {
             return results;
         }
-        // union-find
+        
         UF uf = new UF(nodes);
         for (UndirectedGraphNode node : nodes) {
             for (UndirectedGraphNode neighbor :  node.neighbors) {
@@ -78,7 +73,7 @@ public class Solution {
                 }
             }
         }
-        // construct the result
+        
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int node : uf.father.keySet()) {
             int fa = uf.find(node);
@@ -87,7 +82,7 @@ public class Solution {
             }
             map.get(fa).add(node);
         }
-        //sort the result
+        
         for (List<Integer> result : map.values()) {
             Collections.sort(result);
             results.add(result);
