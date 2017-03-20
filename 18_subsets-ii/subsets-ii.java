@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/subsets-ii
 @Language: Java
-@Datetime: 17-01-17 19:31
+@Datetime: 17-02-25 15:29
 */
 
 class Solution {
@@ -12,30 +12,35 @@ class Solution {
      * @return: A list of lists. All valid subsets.
      */
     public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] nums) {
-        ArrayList<ArrayList<Integer>> results = new ArrayList<> ();
-        if (nums == null || nums.length == 0) {
+        // write your code here
+        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+        if (nums ==  null) {
             return results;
         }
         
         Arrays.sort(nums);
-        ArrayList<Integer> subset =  new ArrayList<Integer>();
-        subsetSearch(0, nums, subset, results);
+        ArrayList<Integer> path = new ArrayList<>();
+        boolean[] visited = new boolean[nums.length];
+        dfs(results, path, nums, 0, visited);
         return results;
     }
     
-    private void subsetSearch(int startIndex, int[] nums, ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> results) {
-        
-        results.add(new ArrayList<Integer>(subset));
+    private void dfs(ArrayList<ArrayList<Integer>> results, 
+                        ArrayList<Integer> path, 
+                        int[] nums, 
+                        int startIndex, 
+                        boolean[] visited) {
+        results.add(new ArrayList(path));
         
         for (int i = startIndex; i < nums.length; i++) {
-            if (i != 0 && nums[i] == nums[i-1] && i > startIndex ) {
+            if (i != 0 && nums[i] == nums[i - 1] && visited[i -1] == false ) {
                 continue;
             }
-            else {
-                subset.add(nums[i]);
-                subsetSearch(i + 1, nums, subset, results);
-                subset.remove(subset.size() - 1);
-            }
+            path.add(nums[i]);
+            visited[i] = true;
+            dfs(results, path, nums, i + 1, visited);
+            visited[i] = false;
+            path.remove(path.size() - 1);
         }
     }
 }
