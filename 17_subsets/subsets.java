@@ -3,34 +3,33 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/subsets
 @Language: Java
-@Datetime: 17-01-17 19:19
+@Datetime: 17-02-25 15:20
 */
 
 class Solution {
     /**
-     * @param nums: A set of numbers.
+     * @param S: A set of numbers.
      * @return: A list of lists. All valid subsets.
      */
     public ArrayList<ArrayList<Integer>> subsets(int[] nums) {
-        ArrayList<ArrayList<Integer>> results = new ArrayList<> ();
-        if (nums == null || nums.length == 0) {
+        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+        if (nums ==  null) {
             return results;
         }
-        
         Arrays.sort(nums);
-        ArrayList<Integer> subset =  new ArrayList<Integer>();
-        subsetSearch(0, nums, subset, results);
+        ArrayList<Integer> path = new ArrayList<>();
+        dfs(results, path, nums, 0);
         return results;
     }
     
-    private void subsetSearch(int startIndex, int[] nums, ArrayList<Integer> subset, ArrayList<ArrayList<Integer>> results) {
+    private void dfs(ArrayList<ArrayList<Integer>> results, ArrayList<Integer> path, int[] nums, int startIndex) {
         
-        results.add(new ArrayList<Integer>(subset));
+        results.add(new ArrayList(path));
         
         for (int i = startIndex; i < nums.length; i++) {
-            subset.add(nums[i]);
-            subsetSearch(i + 1, nums, subset, results);
-            subset.remove(subset.size()-1);
+            path.add(nums[i]);
+            dfs(results, path, nums, i + 1);
+            path.remove(path.size() - 1);
         }
     }
 }
