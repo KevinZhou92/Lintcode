@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/word-break
 @Language: Java
-@Datetime: 17-03-15 21:21
+@Datetime: 17-05-03 16:16
 */
 
 public class Solution {
@@ -12,34 +12,28 @@ public class Solution {
      * @param dict: A dictionary of words dict
      */
     public boolean wordBreak(String s, Set<String> dict) {
-        if (s.length() == 0 || s == null) {
+        // write your code here 
+        if (s == null || s.length() == 0) {
             return true;
         } 
+        int max = Integer.MIN_VALUE;
+        for (String x : dict) {
+            max = Math.max(x.length(), max);
+        }
         
-        int max = getMax(s, dict);
-        
-        boolean[] possible = new boolean[s.length() + 1];
-        possible[0] = true;
-        for (int i = 0; i <= s.length(); i++) {
-            for (int j = 0; j <= i && j <= max; j++) {
-                if (!possible[i - j]) {
+        boolean[] available = new boolean[s.length() + 1];
+        available[0] = true;
+        for (int i = 1; i < s.length() + 1; i++) {
+            for (int last = 1; last <= i && last <= max; last++) {
+                if (!available[i - last]) {
                     continue;
                 }
-                String last = s.substring(i - j, i);
-                if (dict.contains(last)) {
-                    possible[i] = true;
+                String sub = s.substring(i - last, i);
+                if (dict.contains(sub)) {
+                    available[i] = true;
                 }
             }
         }
-        return possible[s.length()];
-    }
-    private int getMax(String s, Set<String> dict) {
-        int max = Integer.MIN_VALUE;
-        for (String next: dict) {
-            if (next.length() > max) {
-                max = next.length();
-            }
-        }
-        return max;
+        return available[s.length()];
     }
 }
