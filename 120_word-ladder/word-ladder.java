@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/word-ladder
 @Language: Java
-@Datetime: 17-02-25 17:22
+@Datetime: 17-05-02 20:06
 */
 
 public class Solution {
@@ -14,9 +14,7 @@ public class Solution {
       * @return an integer
       */
     public int ladderLength(String start, String end, Set<String> dict) {
-        if (start.length() != end.length()) {
-            return 0;
-        }
+        // write your code here
         if (start.equals(end)) {
             return 1;
         }
@@ -25,51 +23,47 @@ public class Solution {
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();
         
-        queue.offer(start);
         visited.add(start);
+        queue.offer(start);
         
         int depth = 1;
-        while(!queue.isEmpty()) {
-            depth++;
+        while (!queue.isEmpty()) {
             int size = queue.size();
+            depth++;
             for (int i = 0; i < size; i++) {
-                String current = queue.poll();
-                for (String next : getWords(current, dict)) {
-                    if (visited.contains(next)) {
-                        continue;
+                String cur = queue.poll();
+                for (String temp : neighbors(cur, dict)) {
+                    if (!visited.contains(temp)) {
+                        queue.offer(temp);
+                        visited.add(temp);
                     }
-                    if (next.equals(end)) {
+                    if (temp.equals(end)) {
                         return depth;
                     }
-                    queue.offer(next);
-                    visited.add(next);
                 }
-            }
+            } 
         }
         return 0;
     }
     
-    private ArrayList<String> getWords(String word, Set<String> dict) {
-        ArrayList<String> results = new ArrayList<>();
+    private ArrayList<String> neighbors(String s, Set<String> dict) {
+        ArrayList<String> res = new ArrayList<>();
         
-        for (int i = 0; i < word.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             for (char c = 'a'; c <= 'z'; c++) {
-                String next =  replace(word, i, c);
-                if (results.contains(next)) {
-                    continue;
-                }
-                if (dict.contains(next)) {
-                    results.add(next);
+                if (s.charAt(i) != c) {
+                    String newStr = replace(s, i , c);
+                    if (dict.contains(newStr)) {
+                        res.add(newStr);
+                    }
                 }
             }
         }
-        return results;
+        return res;
     }
-    private String replace(String word, int index, char c) {
-        char[] chars = word.toCharArray();
-        if (chars[index] != c) {
-            chars[index] = c;
-        }
-        return new String(chars);
+    private String replace(String s, int i, char c) {
+        char[] characters = s.toCharArray();
+        characters[i] = c;
+        return new String(characters);
     }
 }
