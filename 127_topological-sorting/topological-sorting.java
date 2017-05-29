@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/topological-sorting
 @Language: Java
-@Datetime: 17-02-17 01:58
+@Datetime: 17-04-30 16:06
 */
 
 /**
@@ -20,36 +20,42 @@ public class Solution {
      * @return: Any topological order for the given graph.
      */    
     public ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
-        if (graph == null) {
-            return null;
-        }
-        int size = graph.size();
-        int[] indegree = new int[size];
-        ArrayList<DirectedGraphNode> order = new ArrayList<>();
+        // write your code here
+        Map<DirectedGraphNode, Integer> indegree = new HashMap<>();
         
-        for (int i = 0; i < size; i ++) {
-            DirectedGraphNode node = graph.get(i);
+        for (DirectedGraphNode node : graph) {
+            indegree.put(node, 0);
+        }
+        
+        for (DirectedGraphNode node : graph) {
             for (DirectedGraphNode neighbor : node.neighbors) {
-                indegree[neighbor.label]++;
-            }
-        }
-        
-        for (int i = 0; i < size; i++) {
-            if (indegree[i] == 0) {
-                order.add(graph.get(i));
-            }
-        }
-        
-        for (int i = 0; i < order.size(); i++) {
-            DirectedGraphNode current = order.get(i);
-            for (DirectedGraphNode neighbor : current.neighbors) {
-                indegree[neighbor.label]--;
-                if (indegree[neighbor.label] == 0) {
-                    order.add(neighbor);
+                if (!indegree.containsKey(neighbor)) {
+                    indegree.put(neighbor, 1);
+                } else {
+                    indegree.put(neighbor, indegree.get(neighbor) + 1);
                 }
             }
         }
         
-        return order;
+        ArrayList<DirectedGraphNode> res = new ArrayList<>();
+        Queue<DirectedGraphNode> queue = new LinkedList<>();
+        for (DirectedGraphNode node : indegree.keySet()) {
+            if (indegree.get(node) == 0) {
+                res.add(node);
+                queue.offer(node);
+            }
+        }
+        
+        while (!queue.isEmpty()) {
+            DirectedGraphNode temp = queue.poll();
+            for (DirectedGraphNode can : temp.neighbors) {
+                indegree.put(can, indegree.get(can) - 1);
+                if (indegree.get(can) == 0) {
+                   res.add(can);
+                   queue.offer(can); 
+                } 
+            }
+        }
+        return res;
     }
 }
