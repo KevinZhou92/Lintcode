@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/word-ladder
 @Language: Markdown
-@Datetime: 17-02-25 17:22
+@Datetime: 17-05-02 20:06
 ```
 
 1.此题采用宽优先搜索，注意要求的结果是起始词到终点词的词的总数（inclusive），在变量初始化的时候要注意‘
