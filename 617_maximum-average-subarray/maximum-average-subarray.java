@@ -3,7 +3,7 @@
 @Author:   zhou21
 @Problem:  http://www.lintcode.com/problem/maximum-average-subarray
 @Language: Java
-@Datetime: 17-01-31 01:30
+@Datetime: 17-05-20 19:17
 */
 
 public class Solution {
@@ -13,49 +13,48 @@ public class Solution {
      * @return the maximum average
      */
     public double maxAverage(int[] nums, int k) {
-       if (nums.length == 0 || nums == null) {
-           return 0;
-       }
-       
-       double left = Integer.MAX_VALUE;
-       double right = Integer.MIN_VALUE;
-       
-       for (int i = 0; i < nums.length; i++) {
-           if (nums[i] > right) {
-               right = nums[i];
-           }
-           if (nums[i] < left) {
-               left = nums[i];
-           }
-       }
-       
-       
-       double start = left;
-       double end = right;
-       double[] sum = new double[nums.length + 1];
-       while (end - start >= 1e-6) {
-           double average = (end + start) / 2.0;
-           boolean check = false;
-           double min_diff = 0;
-           sum[0] = 0;
-           for (int i = 1; i <= nums.length; i++) {
-               sum[i] = sum[i - 1] + nums[i - 1] - average;
-               if (i >= k && sum[i] >= min_diff) {
-                   check = true;
-                   break;
-               }
-               
-               if (i >= k) {
-                   min_diff = Math.min(min_diff, sum[i - k + 1]);//下一次循环i++了,所以此处是i+1
-               }
+        // Write your code here
+        double min = Integer.MAX_VALUE;
+        double max = Integer.MIN_VALUE;
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > max) {
+                max = nums[i];
+            } 
+            if (nums[i] < min) {
+                min = nums[i];
             }
-            if (check) {
-               start = average;
-            }else {
-                end = average;
+        }
+        
+        double start = min;
+        double end = max;
+        
+        while (end - start >= 1e-5) {
+            double mid = start + (end - start) / 2;
+            if (valid(nums, mid, k)) {
+                start = mid;
+            } else {
+                end = mid;
             }
-       }
-       return start;
-       
+        }
+        
+        return start;
+    }
+    
+    private boolean valid(int[] nums, double mid, int k) {
+        double[] sum = new double[nums.length + 1];
+        double min_diff = 0;
+        sum[0] = 0;
+        
+        for (int i = 1; i <= nums.length; i++) {
+            sum[i] = sum[i - 1] + nums[i - 1] - mid;
+            if (i >=k && sum[i] - min_diff >= 0) {
+                return true;
+            }
+            if (i >= k) {
+                min_diff = Math.min(min_diff, sum[i - k + 1]);
+            }
+        }
+        return false;
     }
 }
